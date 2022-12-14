@@ -6,12 +6,14 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:23:11 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/12/14 11:23:31 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:11:55 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
+
+/*Calcul de la largeur de la map*/
 static int	width_map(char	*string)
 {
 	int	width;
@@ -59,7 +61,7 @@ int	read_map(t_solong *solong, char **argv)
 	while (1)
 	{
 		readmap = get_next_line(solong->fd);
-		if (!addingline(solong, readmap))
+		if (!add_line(solong, readmap))
 			break ;
 	}
 	close (solong->fd);
@@ -77,7 +79,7 @@ void	checker(t_solong *solong, int y, int width)
 			solong->map[y][width] != '\n')
 		error_msg(ERROR_MAP, solong);
 	if (solong->map[y][width] == 'C')
-		solong->column++;
+		solong->collectables++;
 	if (solong->map[y][width] == 'P')
 		solong->player++;
 	if (solong->map[y][width] == 'E')

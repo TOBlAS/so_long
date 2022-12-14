@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:34:10 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/12/14 11:23:29 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:30:27 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@
 # include "../mlx/mlx.h"
 # include "../libft/includes/libft.h"
 
+# define WALL	"1"
+# define FLOOR	"0"
+# define COLLECTABLE "C"
+# define EXIT "E"
+# define START "P"
+
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+
+# define UP 3565
+# define DOWN
+# define LEFT
+# define RIGHT
+
 typedef struct t_block
 {
 	int		fd;
@@ -28,11 +44,11 @@ typedef struct t_block
 	int		width;
 	int		countplayer;
 	int		column;
-	int		exit;
+	int		exit1;
 	int		x;
 	int		y;
 	int		count;
-	int		collectables;
+	int		collectables1;
 
 	char	**map;
 
